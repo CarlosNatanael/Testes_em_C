@@ -1,5 +1,4 @@
 /*
-
 // Primeiro desafio
 
 #include <stdio.h>
@@ -56,7 +55,7 @@ int main()
 }
 */
 
-/*
+
 // Terceiro desafio
 #include <stdio.h>
 
@@ -102,4 +101,4 @@ int main()
     
     return 0;
 }
-*/
+
