@@ -16,5 +16,5 @@ int main(){
     
     printf("Sua idade é %d\n", idade);
     
-    return 0,
+    return 0;
 }
