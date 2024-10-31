@@ -1,9 +1,10 @@
-#include <stdio.h>
 
 /*
 Utilizando o for (para)
 Faça um programa, no qual receba e soma 5 numeros
 */
+/*
+#include <stdio.h>
 
 int main()
 {
@@ -24,4 +25,36 @@ int main()
     
     // Saída
     printf("O valor da soma é %d", soma);
+}
+*/
+
+//------------------------------------------------------------------------------
+/*
+Estrutura de repetição
+while
+
+Utilizado quando você precisa de um loop
+onde não tenha um numero fixo de elementos
+mas que tenha um criterio de parada.
+*/
+#include <stdio.h>
+
+int main()
+{
+    int numero, soma = 0;
+    
+    printf("Digite o numero: ");
+    scanf("%d", &numero);
+    
+    while(numero != 0){
+        
+        soma = soma + numero;
+        
+        printf("Digite o numero: ");
+        scanf("%d", &numero);
+    }
+    
+    printf("A soma é %d", soma);
+    
+    return 0;
 }
