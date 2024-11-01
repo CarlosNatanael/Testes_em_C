@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Bolo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Registro de Bolo</h1>
+
+    {% if session.get('admin') %}
+        <p>Bem-vindo, admin! <a href="{{ url_for('logout') }}">Logout</a></p>
+
+        <!-- Formulário para adicionar registro, visível apenas para admin -->
+        <h2>Adicionar Registro de Bolo</h2>
+        <form method="POST">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" required>
+            
+            <label for="trouxe_bolo">Trouxe Bolo?</label>
+            <select name="trouxe_bolo" id="trouxe_bolo">
+                <option value="Sim">Sim</option>
+                <option value="Não">Não</option>
+            </select>
+            
+            <button type="submit">Adicionar</button>
+        </form>
+    {% else %}
+        <a href="{{ url_for('login') }}">Admin</a>
+    {% endif %}
+
+    <!-- Tabela de registros -->
+    <h2>Histórico de Bolos</h2>
+    <table>
+        <tr>
+            <th>Data</th>
+            <th>Nome</th>
+            <th>Trouxe Bolo</th>
+            {% if session.get('admin') %}
+                <th>Ações</th>
+            {% endif %}
+        </tr>
+        {% for registro in registros %}
+        <tr>
+            <td>{{ registro['data'] }}</td>
+            <td>{{ registro['nome'] }}</td>
+            <td>{{ registro['trouxe_bolo'] }}</td>
+            {% if session.get('admin') %}
+                <td><a href="{{ url_for('edit', id=registro['id']) }}">Editar</a></td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
